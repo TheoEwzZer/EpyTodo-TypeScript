@@ -1,7 +1,7 @@
 import {
-  registerUser,
   checkAccountMail,
   getMailAccount,
+  registerUser,
 } from "../user/user.query";
 import { Express, Request, Response } from "express";
 

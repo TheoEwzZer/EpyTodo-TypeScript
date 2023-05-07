@@ -1,6 +1,6 @@
 import db from "../config/db";
-import { Request, Response, NextFunction } from "express";
 import { QueryError, RowDataPacket } from "mysql2";
+import { Request, Response, NextFunction } from "express";
 
 export default (req: Request, res: Response, next: NextFunction): void => {
   const { id } = req.params;

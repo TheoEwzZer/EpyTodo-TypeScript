@@ -1,5 +1,5 @@
-import { verify, VerifyErrors, JwtPayload } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
+import { verify, VerifyErrors, JwtPayload } from "jsonwebtoken";
 
 export default (req: Request, res: Response, next: NextFunction): void => {
   const { authorization } = req.headers;

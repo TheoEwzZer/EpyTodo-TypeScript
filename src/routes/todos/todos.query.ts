@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import db from "../../config/db";
-import { Response } from "express";
-import { QueryError } from "mysql2";
 import { IUser, ITodo } from "../../interface";
+import { QueryError } from "mysql2";
+import { Response } from "express";
 
 export function viewAllTodos(res: Response): void {
   db.query(

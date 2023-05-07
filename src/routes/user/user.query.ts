@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { sign } from "jsonwebtoken";
 import db from "../../config/db";
+import { IUser, ITodo } from "../../interface";
 import { QueryError } from "mysql2";
 import { Response } from "express";
-import { IUser, ITodo } from "../../interface";
+import { sign } from "jsonwebtoken";
 
 export function viewAllUsers(res: Response): void {
   db.query(

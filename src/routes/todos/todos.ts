@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
+  createTodo,
+  deleteTodoById,
+  updateTodoById,
   viewAllTodos,
   viewTodoById,
-  createTodo,
-  updateTodoById,
-  deleteTodoById,
 } from "./todos.query";
 import auth from "../../middleware/auth";
 import notFound from "../../middleware/notFound";
