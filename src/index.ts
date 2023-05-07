@@ -2,30 +2,29 @@ import express, {
   Express,
   Request,
   Response,
-  urlencoded,
   json,
   raw,
+  urlencoded,
 } from "express";
+import authRoutes from "./routes/auth/auth";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
+import todosRoutes from "./routes/todos/todos";
+import userRoutes from "./routes/user/user";
 
 dotenv.config();
 
 const app: Express = express();
 
-const port: string | undefined = process.env.PORT;
+const port: string | 3000 = process.env.PORT || 3000;
 
-app.use(urlencoded({ extended: true }));
 app.use(json());
 app.use(raw());
+app.use(urlencoded({ extended: true }));
 
-import userRoutes from "./routes/user/user";
-import todosRoutes from "./routes/todos/todos";
-import authRoutes from "./routes/auth/auth";
-
-userRoutes(app, bcrypt);
-todosRoutes(app);
 authRoutes(app, bcrypt);
+todosRoutes(app);
+userRoutes(app, bcrypt);
 
 app.listen(port, (): void => {
   console.log(`Example app listening at http://localhost:${port}`);
