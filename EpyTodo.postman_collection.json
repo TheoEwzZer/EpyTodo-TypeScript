@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "aafe1ab4-6262-45f4-85d0-31a38fa48551",
+		"name": "EpyTodo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27189503"
+	},
+	"item": [
+		{
+			"name": "REGISTER",
+			"item": [
+				{
+					"name": "POST REGISTER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"theo.fabiano@epitech.eu\",\n    \"name\" : \"Theo\",\n    \"firstname\": \"Fabiano\",\n    \"password\" : \"Epitech\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"theo.fabiano@epitech.eu\",\n    \"password\" : \"Epitech\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "GET USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER/TODOS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USERS/:ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USERS/:EMAIL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/:email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": "theo.fabiano@epitech.eu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT USERS/:ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"theo.fabiano@epitech.eu\",\n    \"password\" : \"Epitech\",\n    \"firstname\" : \"Theo\",\n    \"name\" : \"Fabiano\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TODOS",
+			"item": [
+				{
+					"name": "GET TODOS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET TODOS/:ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/todos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST TODOS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"title\",\n    \"description\": \"desc\",\n    \"due_time\": \"2021-03-06 19:24:00\",\n    \"user_id\": \"9\",\n    \"status\": \"todo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT TODOS/:ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated title\",\n    \"description\": \"Updated desc\",\n    \"due_time\": \"2021-03-07 19:24:00\",\n    \"user_id\": \"1\",\n    \"status\": \"in progress\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/todos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"todos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TODOS/:ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoZW8uZmFiaWFub0BlcGl0ZWNoLmV1IiwicGFzc3dvcmQiOiIkMmEkMTAkbnd5Q1pSbTZhRjdCQi9Ddnc4dTlvdXhtaDhIeDNVMXJmZjN0NnFEZXh2Q3Juc0dSZ0cuVFciLCJpYXQiOjE2ODMxNDAzNTQsImV4cCI6MTY4MzE0Mzk1NH0.WWej6S-p-C4abAQMmOELE5cLi-3GgFNazMtV3RBDtto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/TODOS/:ID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"TODOS",
+								":ID"
+							],
+							"variable": [
+								{
+									"key": "ID",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
