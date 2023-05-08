@@ -76,10 +76,7 @@ export function registerUser(
   );
 }
 
-export const viewUserByEmail = function viewUserIdByEmail(
-  res: Response,
-  email: string
-): void {
+export function viewUserByEmail(res: Response, email: string): void {
   db.execute(
     "SELECT * FROM user WHERE email = ?",
     [email],
@@ -101,12 +98,9 @@ export const viewUserByEmail = function viewUserIdByEmail(
       res.status(200).json(updatedResults);
     }
   );
-};
+}
 
-export const viewUserById = function viewUserEmailById(
-  res: Response,
-  id: string
-): void {
+export function viewUserById(res: Response, id: string): void {
   db.execute(
     "SELECT * FROM user WHERE id = ?",
     [id],
@@ -128,24 +122,34 @@ export const viewUserById = function viewUserEmailById(
       res.status(200).json(updatedResults);
     }
   );
-};
+}
 
 export function deleteUserById(res: Response, id: string): void {
   db.execute(
-    "DELETE FROM user WHERE id = ?",
+    "DELETE FROM todo WHERE user_id = ?",
     [id],
-    (err: QueryError | null, results: any): void => {
+    (err: QueryError | null): void => {
       if (err) {
         res.status(500).json({ msg: "Internal server error" });
         return;
       }
-      if (results.affectedRows === 0) {
-        res.status(404).json({ msg: "Not found" });
-        return;
-      }
-      res
-        .status(204)
-        .json({ msg: `Successfully deleted record number: ${id}` });
+      db.execute(
+        "DELETE FROM user WHERE id = ?",
+        [id],
+        (err2: QueryError | null, results: any): void => {
+          if (err2) {
+            res.status(500).json({ msg: "Internal server error" });
+            return;
+          }
+          if (results.affectedRows === 0) {
+            res.status(404).json({ msg: "Not found" });
+            return;
+          }
+          res
+            .status(204)
+            .json({ msg: `Successfully deleted record number: ${id}` });
+        }
+      );
     }
   );
 }
@@ -242,6 +246,31 @@ export function getMailAccount(
       });
       res.json({ token });
       callback(0);
+    }
+  );
+}
+
+export function getUserIdByEmail(email: string): Promise<string> {
+  return new Promise(
+    (
+      resolve: (value: string) => void,
+      reject: (error: Error) => void
+    ): void => {
+      db.execute(
+        "SELECT id FROM user WHERE email = ?",
+        [email],
+        (err: QueryError | null, results: IUser[]): void => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          if (results.length === 0) {
+            reject(new Error("Not found"));
+            return;
+          }
+          resolve(results[0].id);
+        }
+      );
     }
   );
 }
