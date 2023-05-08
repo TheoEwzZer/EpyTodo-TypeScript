@@ -8,6 +8,8 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
+    env_file:
+      - .env
     ports:
       - "3306:3306"
     volumes:
@@ -27,6 +29,8 @@ services:
       SECRET: ${SECRET}
     ports:
       - "${PORT}:${PORT}"
+    env_file:
+      - .env
     restart: always
 
 volumes:
