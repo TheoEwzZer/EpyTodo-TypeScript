@@ -26,15 +26,28 @@ jobs:
         run: |
           npm install
           npm ci
-      - name: build
+      - name: Build
         run: |
           npm run build --if-present
-          npm start
-          npm run test
+      - name: Start DB
+        run: docker-compose up -d db
         env:
           MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
           MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+      - name: Wait for DB to start
+        run: docker-compose run --rm wait
+        env:
+          MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+      - name: Run tests
+        run: npm run test
+        env:
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           PORT: ${{ secrets.PORT }}
           SECRET: ${{ secrets.SECRET }}
