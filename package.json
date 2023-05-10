@@ -1,6 +1,6 @@
 {
   "name": "epytodo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "API to create a TODO App.",
   "main": "./src/index.ts",
   "scripts": {
