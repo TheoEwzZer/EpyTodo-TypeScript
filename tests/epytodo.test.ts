@@ -30,7 +30,9 @@ describe("POST /login", function (): void {
       .send({ email: email, password: "Epitech" })
       .expect(200)
       .end((err: Error, res: Response): void => {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         token = res.body.token;
         done();
       });
