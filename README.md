@@ -459,3 +459,15 @@ Request and response body:
 ```text
 Each response must use an appropriate HTTP.
 ```
+
+## FINAL MARK
+
+### Mark: 22 / 22 (100%)
+
+- Preliminaries (2 / 2)
+- Web Server (5 / 5)
+- Routes (does it exists) (3 / 3)
+- Routes (Is it well done) (3 / 3)
+- Password (1 / 1)
+- Token (3 / 3)
+- SQL DB (5 / 5)
